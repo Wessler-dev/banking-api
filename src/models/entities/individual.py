@@ -8,7 +8,7 @@ class Individual(Base):
     monthly_income = Column(Float, nullable=False)
     age = Column(BIGINT, nullable=False)
     full_name = Column(String(150), nullable= True)
-    phone_number = Column(String,nullable=True)
+    phone_number = Column(String(30),nullable=True)
     email = Column(String(150),nullable=True)
     category = Column(String(150), nullable=True)
     balance = Column(Float,nullable=False)

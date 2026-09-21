@@ -7,10 +7,10 @@ class LegalEntity(Base):
     id = Column(BIGINT, primary_key=True)
     revenue = Column(Float, nullable=False)
     age = Column(BIGINT,nullable=False)
-    trade_name = Column(String, nullable=True)
-    phone_number = Column(String, nullable=True)
-    corporate_email = Column(String, nullable=True)
-    category = Column(String, nullable=False)
+    trade_name = Column(String(150), nullable=True)
+    phone_number = Column(String(30), nullable=True)
+    corporate_email = Column(String(150), nullable=True)
+    category = Column(String(150), nullable=False)
     balance = Column(Float, nullable=False)
 
     def __repr__(self):
