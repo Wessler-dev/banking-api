@@ -2,7 +2,7 @@ from sqlalchemy import Column, String, BIGINT, Float
 from src.models.settings.base import Base
 
 class LegalEntity(Base):
-    __tablename__ = "Legal Entity"
+    __tablename__ = "LegalEntity"
 
     id = Column(BIGINT, primary_key=True)
     revenue = Column(Float, nullable=False)
