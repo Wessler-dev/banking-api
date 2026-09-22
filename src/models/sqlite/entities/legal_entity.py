@@ -1,7 +1,7 @@
 from sqlalchemy import Column, String, BIGINT, Float
-from src.models.settings.base import Base
+from src.models.sqlite.settings.base import Base
 
-class LegalEntity(Base):
+class LegalEntityTable(Base):
     __tablename__ = "LegalEntity"
 
     id = Column(BIGINT, primary_key=True)
