@@ -4,7 +4,7 @@ from src.models.sqlite.entities.individual import IndividualTable
 class IndividualRepositoryInterface(ABC):
 
     @abstractmethod
-    def insert_individual(self,full_name:str, monthy_income: float,balance:float, category:str) -> None:
+    def insert_individual(self,full_name:str, monthly_income: float,balance:float, category:str) -> None:
         pass
 
     @abstractmethod
