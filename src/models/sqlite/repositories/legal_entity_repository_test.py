@@ -2,23 +2,23 @@ from unittest import mock
 from mock_alchemy.mocking import UnifiedAlchemyMagicMock
 from sqlalchemy.orm.exc import NoResultFound
 
-from src.models.sqlite.entities.individual import IndividualTable
-from .individual_repository import IndividualRepository
+from src.models.sqlite.entities.legal_entity import LegalEntityTable
+from .legal_entity_repository import LegalEntityRepository
 
-class MockConnection:
+class Mockconnection:
     def __init__(self) -> None:
         self.session = UnifiedAlchemyMagicMock(
             data=[
                 (
-                    [mock.call.query(IndividualTable)],
+                    [mock.call.query(LegalEntityTable)],
                     [
-                        IndividualTable(full_name="Tony Stark",category="Pessoa Fisica")
+                        LegalEntityTable(trade_name="Stark Corporation", category="Pesoa Juridica")
                     ]
                 )
             ]
         )
     def __enter__(self): return self
-    def __exit__(self, exc_type, exc_val, exc_tb): pass
+    def __exit__(self, exc_typr, exc_val, exc_tb): pass
 
 class MockConnectionNoResult:
     def __init__(self) -> None:
@@ -31,27 +31,27 @@ class MockConnectionNoResult:
     def __enter__(self): return self
     def __exit__(self, exc_type, exc_val, exc_tb): pass
 
-def test_insert_individual():
-    mock_connection = MockConnection()
-    repository = IndividualRepository(mock_connection)
+def test_insert_legal_entity():
+    mock_connection = Mockconnection()
+    repository = LegalEntityRepository(mock_connection)
 
-    repository.insert_individual(
-        full_name="tony Stark",
-        monthly_income=10000,
-        balance=5000,
-        category="Pessoa Fisica"
+    repository.insert_legal_entity(
+        trade_name="Stark Corporation",
+        revenue=10000000,
+        balance=12500.75,
+        category="Pessoa Juridica"
     )
 
     mock_connection.session.add.assert_called_once()
     mock_connection.session.commit.assert_called_once()
 
-def test_get_individual():
-    mock_connection = MockConnection()
+def test_get_legal_entity():
+    mock_connection = Mockconnection()
 
 
-    individual_id = 1
+    legal_entity_id = 1
 
-    repo = IndividualRepository(mock_connection)
-    response = repo.get_individual(individual_id)
+    repo = LegalEntityRepository(mock_connection)
+    response = repo.get_legal_entity(legal_entity_id)
     print()
     print(response)
