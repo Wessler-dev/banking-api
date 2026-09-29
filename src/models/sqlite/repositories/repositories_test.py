@@ -3,7 +3,7 @@ from src.models.sqlite.settings.connection import db_connection_handler
 from .individual_repository import IndividualRepository
 from .legal_entity_repository import LegalEntityRepository
 
-db_connection_handler.connect_to_db()
+#db_connection_handler.connect_to_db()
 
 @pytest.mark.skip(reason="interação com o banco")
 def test_insert_individual():
