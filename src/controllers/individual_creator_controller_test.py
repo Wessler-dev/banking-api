@@ -9,7 +9,7 @@ def test_create():
     individual_infor = {
         "full_name": "TonyStark",
         "age": 44,
-        "phone_number": 9770-7070,
+        "phone_number": 97707070,
         "email": "TonyStark@gmail.com",
         "category": "Pessoa Fisica",
         "monthly_income": 5000
@@ -26,7 +26,7 @@ def test_create_error():
     individual_infor = {
         "full_name": "Tony Stark123",
         "age": 44,
-        "phone_number": 9770-7070,
+        "phone_number": 97707070,
         "email": "TonyStark@gmail.com",
         "category": "Pessoa Fisica",
         "monthly_income": 5000

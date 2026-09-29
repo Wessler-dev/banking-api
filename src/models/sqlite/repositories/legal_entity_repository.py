@@ -1,8 +1,8 @@
 from sqlalchemy.orm.exc import NoResultFound
 from src.models.sqlite.entities.legal_entity import LegalEntityTable
-from src.models.sqlite.interfaces.legal_entity import LegalEntityTableInterface
+from src.models.sqlite.interfaces.legal_entity_repository import LegalEntityRepositoryInterface
 
-class LegalEntityRepository(LegalEntityTableInterface):
+class LegalEntityRepository(LegalEntityRepositoryInterface):
     def __init__(self, db_connection) -> None:
         self.__db_connection = db_connection
 

@@ -21,7 +21,7 @@ class IndividualCreatorController(IndividualCreatorControllerInterface):
         formated_response = self.__format_response(individual_info)
         return formated_response
 
-    def __validade_full_name(self, full_name: str,) -> None:
+    def __validade_full_name(self, full_name: str) -> None:
 
         non_valid_caracteres = re.compile(r'[^a-zA-Z]')
 
