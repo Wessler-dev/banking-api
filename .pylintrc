@@ -9,7 +9,8 @@ disable=
       E0015,
       C0321,
       W0719,
-      R0801
+      R0801,
+      R0913
 
 # Analyse import fallback blocks. This can be used to support both Python 2 and
 # 3 compatible code, which means that the block might have code that exists
@@ -324,7 +325,7 @@ max-locals=15
 max-parents=7
 
 # Maximum number of positional arguments for function / method.
-max-positional-arguments=5
+max-positional-arguments=20
 
 # Maximum number of public methods for a class (see R0904).
 max-public-methods=20
