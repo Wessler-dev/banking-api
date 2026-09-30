@@ -4,5 +4,5 @@ from abc import ABC, abstractmethod
 class LegalEntityFinderControllerInterface(ABC):
 
     @abstractmethod
-    def find(self,legal_entity_info: int) -> Dict:
+    def find(self,legal_entity_id: int) -> Dict:
         pass
