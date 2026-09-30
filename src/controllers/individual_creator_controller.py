@@ -1,6 +1,6 @@
 from typing import Dict
 import re
-from src.errors.http_bad_request import HttpBadRequestError
+from src.errors.error_types.http_bad_request import HttpBadRequestError
 from src.models.sqlite.interfaces.individual_repository import IndividualRepositoryInterface
 from .interfaces.individual_creator_controller import IndividualCreatorControllerInterface
 
