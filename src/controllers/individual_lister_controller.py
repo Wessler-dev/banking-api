@@ -8,7 +8,7 @@ class IndividualListerController(IndividualListerControllerInterface):
 
         self.__individual_repository = individual_repository
 
-    def list_individuals(self) -> Dict:
+    def list(self) -> Dict:
 
         individuals = self.__get_individuals_in_db()
         response = self.__format_response(individuals)

@@ -8,7 +8,7 @@ class LegalEntityListerController(LegalEntityListerControllerInterface):
 
         self.__legal_entity_repository = legal_entity_repository
 
-    def list_legal_entities(self) -> Dict:
+    def list(self) -> Dict:
 
         legal_entities = self.__get_legal_entities_in_db()
         response = self.__format_response(legal_entities)
