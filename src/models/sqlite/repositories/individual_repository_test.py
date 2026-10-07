@@ -37,6 +37,9 @@ def test_insert_individual():
 
     repository.insert_individual(
         full_name="tony Stark",
+        age= 44,
+        phone_number= 4799999,
+        email="tonystark@gmail.com",
         monthly_income=10000,
         balance=5000,
         category="Pessoa Fisica"

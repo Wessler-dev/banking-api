@@ -15,9 +15,10 @@ class IndividualCreatorController(IndividualCreatorControllerInterface):
         email = individual_info["email"]
         category = individual_info["category"]
         monthly_income = individual_info["monthly_income"]
+        balance = individual_info["balance"]
 
         self.__validade_full_name(full_name)
-        self.__insert_individual_in_db(full_name, age, phone_number, email, category, monthly_income)
+        self.__insert_individual_in_db(full_name, age, phone_number, email, category, monthly_income, balance)
         formated_response = self.__format_response(individual_info)
         return formated_response
 
@@ -28,8 +29,8 @@ class IndividualCreatorController(IndividualCreatorControllerInterface):
         if non_valid_caracteres.search(full_name):
             raise HttpBadRequestError("Nome invalido!")
 
-    def __insert_individual_in_db(self, full_name:str, age:int, phone_number:int, email:str, category:int, monthly_income:int) -> None:
-        self.__individual_repository.insert_individual(full_name, age, phone_number, email, category, monthly_income)
+    def __insert_individual_in_db(self, full_name:str, age:int, phone_number:int, email:str, category:int, monthly_income:int, balance:int) -> None:
+        self.__individual_repository.insert_individual(full_name, age, phone_number, email, category, monthly_income,balance)
 
     def __format_response(self, individual_info: Dict) -> Dict:
         return {

@@ -1,40 +1,40 @@
-CREATE TABLE IF NOT EXISTS pessoa_fisica (
+CREATE TABLE IF NOT EXISTS individual (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    renda_mensal REAL,
-    idade INTEGER,
-    nome_completo TEXT,
-    celular TEXT,
+    monthly_income REAL,
+    age INTEGER,
+    full_name TEXT,
+    phone_number INTEGER,
     email TEXT,
-    categoria TEXT,
-    saldo REAL
+    category TEXT,
+    balance REAL
 );
 
-CREATE TABLE IF NOT EXISTS pessoa_juridica (
+CREATE TABLE IF NOT EXISTS legal_entity (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    faturamento REAL,
-    idade INTEGER,
-    nome_fantasia TEXT,
-    celular TEXT,
-    email_corporativo TEXT,
-    categoria TEXT,
-    saldo REAL
+    revenue REAL,
+    age INTEGER,
+    trade_name TEXT,
+    phone_number INTEGER,
+    corporate_email TEXT,
+    category TEXT,
+    balance REAL
 );
 
 INSERT INTO
-    pessoa_fisica (
-        renda_mensal,
-        idade,
-        nome_completo,
-        celular,
+    individual (
+        monthly_income,
+        age,
+        full_name,
+        phone_number,
         email,
-        categoria,
-        saldo
+        category,
+        balance
     )
 VALUES (
         5000.00,
         35,
         'João da Silva',
-        '9999-8888',
+        99998888,
         'joao@example.com',
         'Categoria A',
         10000.00
@@ -43,7 +43,7 @@ VALUES (
         4000.00,
         45,
         'Maria Oliveira',
-        '7777-6666',
+        77776666,
         'maria@example.com',
         'Categoria B',
         15000.00
@@ -52,27 +52,27 @@ VALUES (
         6000.00,
         28,
         'Pedro Santos',
-        '5555-4444',
+        55554444,
         'pedro@example.com',
         'Categoria C',
         8000.00
     );
 
 INSERT INTO
-    pessoa_juridica (
-        faturamento,
-        idade,
-        nome_fantasia,
-        celular,
-        email_corporativo,
-        categoria,
-        saldo
+    legal_entity (
+        revenue,
+        age,
+        trade_name,
+        phone_number,
+        corporate_email,
+        category,
+        balance
     )
 VALUES (
         100000.00,
         10,
         'Empresa XYZ',
-        '1111-2222',
+        11112222,
         'contato@empresa.com',
         'Categoria A',
         50000.00
@@ -81,7 +81,7 @@ VALUES (
         80000.00,
         5,
         'Empresa ABC',
-        '3333-4444',
+        33334444,
         'contato@abc.com',
         'Categoria B',
         70000.00
@@ -90,7 +90,7 @@ VALUES (
         120000.00,
         8,
         'Empresa 123',
-        '5555-6666',
+        55556666,
         'contato@123.com',
         'Categoria C',
         90000.00
