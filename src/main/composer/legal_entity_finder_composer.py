@@ -3,7 +3,7 @@ from src.models.sqlite.repositories.legal_entity_repository import LegalEntityRe
 from src.controllers.legal_entity_finder_controller import LegalEntityFinderController
 from src.views.legal_entity_finder_view import LegalEntityFinderView
 
-def person_finder_composer():
+def legal_entity_finder_composer():
     model = LegalEntityRepository(db_connection_handler)
     controller = LegalEntityFinderController(model)
     view = LegalEntityFinderView(controller)

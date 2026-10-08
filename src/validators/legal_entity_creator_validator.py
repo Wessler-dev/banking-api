@@ -10,7 +10,8 @@ def legal_entity_creator_validator(http_request: HttpRequest) -> None:
         phone_number: int = None
         corporate_email: constr(min_length=1) = None #type: ignore
         category: constr(min_length=1) = None #type: ignore
-        revenue: int = None
+        revenue: float = None
+        balance: float = None
 
     try:
         BodyData(**http_request.body)

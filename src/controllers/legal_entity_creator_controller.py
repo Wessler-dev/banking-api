@@ -15,9 +15,10 @@ class LegalEntityCreatorController(LegalEntityCreatorControllerInterface):
         corporate_email = legal_entity_info["corporate_email"]
         category = legal_entity_info["category"]
         revenue = legal_entity_info["revenue"]
+        balance = legal_entity_info["balance"]
 
         self.__validade_trade_name(trade_name)
-        self.__insert_legal_entity_in_db(trade_name, age, phone_number, corporate_email, category, revenue)
+        self.__insert_legal_entity_in_db(trade_name, age, phone_number, corporate_email, category, revenue, balance)
         formated_response = self.__format_response(legal_entity_info)
         return formated_response
 
@@ -28,8 +29,8 @@ class LegalEntityCreatorController(LegalEntityCreatorControllerInterface):
         if non_valid_caracteres.search(trade_name):
             raise HttpBadRequestError("Nome invalido!")
 
-    def __insert_legal_entity_in_db(self, trade_name:str, age:int, phone_number:int, corporate_email:str, category:str, revenue:int) -> None:
-        self.__legal_entity_repository.insert_legal_entity(trade_name, age, phone_number, corporate_email, category, revenue)
+    def __insert_legal_entity_in_db(self, trade_name:str, age:int, phone_number:int, corporate_email:str, category:str, revenue:int, balance:float) -> None:
+        self.__legal_entity_repository.insert_legal_entity(trade_name, age, phone_number, corporate_email, category, revenue, balance)
 
     def __format_response(self,legal_entity_info: Dict) -> Dict:
         return{

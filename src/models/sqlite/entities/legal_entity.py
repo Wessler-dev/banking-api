@@ -2,7 +2,7 @@ from sqlalchemy import Column, String, BIGINT, Float
 from src.models.sqlite.settings.base import Base
 
 class LegalEntityTable(Base):
-    __tablename__ = "LegalEntity"
+    __tablename__ = "legal_entity"
 
     id = Column(BIGINT, primary_key=True)
     revenue = Column(Float, nullable=False)
