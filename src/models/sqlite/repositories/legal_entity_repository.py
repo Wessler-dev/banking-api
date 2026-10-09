@@ -32,18 +32,28 @@ class LegalEntityRepository(LegalEntityRepositoryInterface):
                     database.session
                     .query(LegalEntityTable)
                     .filter(LegalEntityTable.id ==legal_entity_id)
-                    .with_entities(
-                        LegalEntityTable.trade_name,
-                        LegalEntityTable.age,
-                        LegalEntityTable.phone_number,
-                        LegalEntityTable.corportate_email,
-                        LegalEntityTable.category,
-                        LegalEntityTable.revenue,
-                        LegalEntityTable.balance
-
-                    )
                     .one()
                 )
                 return legal_entity
             except NoResultFound:
                 return None
+
+    def update_legal_entity(self, legal_entity_id:int, revenue:float, balance:float) -> None:
+
+        with self.__db_connection as database:
+            try:
+                legal_entity= (
+                    database.session
+                    .query(LegalEntityTable)
+                    .filter(LegalEntityTable.id == legal_entity_id)
+                    .one()
+                )
+
+                legal_entity.revenue = revenue
+                legal_entity.balance = balance
+
+                database.session.commit()
+
+            except Exception as exception:
+                database.session.rollback()
+                raise exception

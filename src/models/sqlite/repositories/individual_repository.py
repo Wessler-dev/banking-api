@@ -31,17 +31,28 @@ class IndividualRepository(IndividualRepositoryInterface):
                     database.session
                         .query(IndividualTable)
                         .filter(IndividualTable.id == individual_id)
-                        .with_entities(
-                            IndividualTable.full_name,
-                            IndividualTable.age,
-                            IndividualTable.phone_number,
-                            IndividualTable.email,
-                            IndividualTable.monthly_income,
-                            IndividualTable.balance,
-                            IndividualTable.category
-                        )
                         .one()
                 )
                 return individual
             except NoResultFound:
                 return None
+
+    def update_individual(self, individual_id: int, monthly_income: float, balance: float) -> None:
+
+        with self.__db_connection as database:
+            try:
+                individual = (
+                    database.session
+                    .query(IndividualTable)
+                    .filter(IndividualTable.id == individual_id)
+                    .one()
+                )
+
+                individual.monthly_income = monthly_income
+                individual.balance = balance
+
+                database.session.commit()
+
+            except Exception as exception:
+                database.session.rollback()
+                raise exception

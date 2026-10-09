@@ -10,3 +10,7 @@ class IndividualRepositoryInterface(ABC):
     @abstractmethod
     def get_individual(self, individual_id: int) -> IndividualTable:
         pass
+
+    @abstractmethod
+    def update_individual(self, individual_id: int, monthly_income: float, balance: float) -> None:
+        pass

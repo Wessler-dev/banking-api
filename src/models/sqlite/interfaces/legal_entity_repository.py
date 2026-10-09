@@ -10,3 +10,7 @@ class LegalEntityRepositoryInterface(ABC):
     @abstractmethod
     def get_legal_entity(self, legal_entity_id: int) -> LegalEntityTable:
         pass
+
+    @abstractmethod
+    def update_legal_entity(self, legal_entity_id: int, revenue: float, balance: float) -> None:
+        pass
